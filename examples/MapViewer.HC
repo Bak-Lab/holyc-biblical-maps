@@ -1,5 +1,5 @@
 #include "HolyGame.HC"
-#include "HolyMapsDetail.HC"
+#include "HolyMaps.HC"
 #include <stdlib.h>
 
 CDC *dc;
@@ -13,16 +13,7 @@ U0 DrawViewer(I64 map_index, I64 layer_index, I64 marker_index)
   const HBMMarker *selected;
   char detail[64];
 
-  dc->color = BLACK;
-  DCFill(dc);
-  dc->color = YELLOW;
-  GrText(dc, 10, 10, map->name);
-  dc->color = LTCYAN;
-  if (layer && strcmp(layer->map_id, map->id) == 0)
-    GrText(dc, 10, 31, layer->name);
-  else
-    GrText(dc, 10, 31, map->period);
-  HBMDrawDetailedMap(dc, map, layer, 20, 60, 600, 360);
+  HBMDrawMap(dc, map, layer, 0, 0, 1);
 
   markers = map->markers;
   marker_count = map->marker_count;
@@ -34,8 +25,8 @@ U0 DrawViewer(I64 map_index, I64 layer_index, I64 marker_index)
   if (marker_count > 0) {
     selected = &markers[marker_index % marker_count];
     dc->color = WHITE;
-    I64 selected_x = HBMMarkerScreenX(map, selected, 20, 600);
-    I64 selected_y = HBMMarkerScreenY(map, selected, 60, 360);
+    I64 selected_x = HBMMarkerScreenX(map, selected, 0, HBM_MAP_W);
+    I64 selected_y = HBMMarkerScreenY(map, selected, 0, HBM_MAP_H);
     GrLine(dc, selected_x - 7, selected_y - 7,
            selected_x + 7, selected_y - 7);
     GrLine(dc, selected_x - 7, selected_y + 7,
@@ -46,12 +37,21 @@ U0 DrawViewer(I64 map_index, I64 layer_index, I64 marker_index)
            selected_x + 7, selected_y + 7);
     snprintf(detail, sizeof(detail), "%s  %s",
              selected->name, selected->reference);
-    dc->color = BLACK;
-    GrRect(dc, 0, 423, 640, 57);
+  }
+  dc->color = BLACK;
+  GrRect(dc, 0, HBM_MAP_H, 640, 120);
+  dc->color = YELLOW;
+  GrText(dc, 10, 366, map->name);
+  dc->color = LTCYAN;
+  if (layer && strcmp(layer->map_id, map->id) == 0)
+    GrText(dc, 10, 389, layer->name);
+  else
+    GrText(dc, 10, 389, map->period);
+  if (marker_count > 0) {
     dc->color = selected->certainty == HBM_CERTAINTY_DISPUTED
                     ? LTPURPLE
-                    : YELLOW;
-    GrText(dc, 10, 428, detail);
+                    : WHITE;
+    GrText(dc, 10, 412, detail);
   }
   dc->color = LTGRAY;
   GrText(dc, 10, 452, "LEFT RIGHT MAP  UP DOWN LAYER  ACTION PLACE");

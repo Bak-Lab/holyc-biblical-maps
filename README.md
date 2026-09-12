@@ -11,7 +11,9 @@ exploration rather than modern navigation or archaeological analysis.
 
 The viewer targets the full TempleOS-style 640×480 display. Maps are
 rasterized from normalized coastlines, terrain regions, rivers, roads,
-buildings, walls, islands, and routes directly into a 600×360 viewport.
+buildings, walls, islands, and routes directly into a 640×360 canvas.
+`HBMDrawMap` is the canonical one-pixel-resolution renderer; its `tile_size`
+argument is retained for source compatibility but ignored.
 The 30×18 grids remain available as lightweight gameplay and collision data;
 they are no longer enlarged into visible 20×20 blocks.
 
@@ -45,18 +47,18 @@ they are no longer enlarged into visible 20×20 blocks.
 - `HBMMap` tile maps
 - `HBMMarker` cities, regions, landmarks, and routes
 - `HBMLayer` period-specific overlays
-- `HBMDrawDetailedMap` full-resolution vector map renderer
+- `HBMDrawMap` canonical 640×360 one-pixel-resolution renderer
 - Attested, approximate, traditional, and disputed certainty levels
 - Lookup and iteration functions
 - A framebuffer renderer using the standard 16-color palette
 
 ```c
-#include "HolyMapsDetail.HC"
+#include "HolyMaps.HC"
 
 const HBMMap *world = HBMFindMap("near_east");
 const HBMLayer *period = HBMFindLayer("united_monarchy");
 
-HBMDrawDetailedMap(dc, world, period, 20, 60, 600, 360);
+HBMDrawMap(dc, world, period, 0, 0, 1);
 ```
 
 ## Build the viewer

@@ -14,13 +14,13 @@ typedef struct {
 I64 HBMMarkerScreenX(const HBMMap *map, const HBMMarker *marker,
                      I64 origin_x, I64 width)
 {
-  return origin_x + marker->x * width / map->width + width / map->width / 2;
+  return origin_x + marker->x * width / map->width;
 }
 
 I64 HBMMarkerScreenY(const HBMMap *map, const HBMMarker *marker,
                      I64 origin_y, I64 height)
 {
-  return origin_y + marker->y * height / map->height + height / map->height / 2;
+  return origin_y + marker->y * height / map->height;
 }
 
 I64 HBMDScaleX(I64 x, I64 origin_x, I64 width)
@@ -434,6 +434,27 @@ U0 HBMDDrawMarkers(CDC *dc, const HBMMap *map,
   }
 }
 
+U0 HBMDrawMarkers(CDC *dc, const HBMMarker *markers,
+                  I64 marker_count, I64 origin_x,
+                  I64 origin_y, I64 tile_size)
+{
+  I64 index;
+  I64 marker_x;
+  I64 marker_y;
+
+  (void)tile_size;
+  for (index = 0; index < marker_count; index++) {
+    marker_x = origin_x + markers[index].x * HBM_MAP_W / 30;
+    marker_y = origin_y + markers[index].y * HBM_MAP_H / 18;
+    dc->color = markers[index].certainty == HBM_CERTAINTY_DISPUTED
+                    ? LTPURPLE
+                    : markers[index].kind == HBM_LOCATION_ROUTE
+                          ? YELLOW
+                          : LTRED;
+    GrRect(dc, marker_x - 2, marker_y - 2, 5, 5);
+  }
+}
+
 U0 HBMDrawDetailedMap(CDC *dc, const HBMMap *map, const HBMLayer *layer,
                       I64 origin_x, I64 origin_y, I64 width, I64 height)
 {
@@ -443,6 +464,18 @@ U0 HBMDrawDetailedMap(CDC *dc, const HBMMap *map, const HBMLayer *layer,
   if (layer && strcmp(layer->map_id, map->id) == 0)
     HBMDDrawMarkers(dc, map, layer->markers, layer->marker_count,
                     origin_x, origin_y, width, height);
+}
+
+U0 HBMDrawMap(CDC *dc, const HBMMap *map, const HBMLayer *layer,
+              I64 origin_x, I64 origin_y, I64 tile_size)
+{
+  (void)tile_size;
+  HBMDSelectRenderer(dc, map, origin_x, origin_y, HBM_MAP_W, HBM_MAP_H);
+  HBMDrawMarkers(dc, map->markers, map->marker_count,
+                 origin_x, origin_y, 1);
+  if (layer && strcmp(layer->map_id, map->id) == 0)
+    HBMDrawMarkers(dc, layer->markers, layer->marker_count,
+                   origin_x, origin_y, 1);
 }
 
 #endif

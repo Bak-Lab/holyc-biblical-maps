@@ -13,6 +13,9 @@
 #define HBM_CERTAINTY_TRADITIONAL 3
 #define HBM_CERTAINTY_DISPUTED 4
 
+#define HBM_MAP_W 640
+#define HBM_MAP_H 360
+
 typedef struct {
   const char *id;
   const char *name;
@@ -369,43 +372,6 @@ I64 HBMTileColor(char tile)
   return GREEN;
 }
 
-U0 HBMDrawMarkers(CDC *dc, const HBMMarker *markers,
-                  I64 marker_count, I64 origin_x,
-                  I64 origin_y, I64 tile_size)
-{
-  I64 index;
-  I64 color;
-
-  for (index = 0; index < marker_count; index++) {
-    color = markers[index].certainty == HBM_CERTAINTY_DISPUTED
-                ? LTPURPLE
-                : markers[index].kind == HBM_LOCATION_ROUTE
-                      ? YELLOW
-                      : LTRED;
-    dc->color = color;
-    GrRect(dc, origin_x + markers[index].x * tile_size + tile_size / 3,
-           origin_y + markers[index].y * tile_size + tile_size / 3,
-           tile_size / 2, tile_size / 2);
-  }
-}
-
-U0 HBMDrawMap(CDC *dc, const HBMMap *map, const HBMLayer *layer,
-              I64 origin_x, I64 origin_y, I64 tile_size)
-{
-  I64 x;
-  I64 y;
-
-  for (y = 0; y < map->height; y++)
-    for (x = 0; x < map->width; x++) {
-      dc->color = HBMTileColor(map->tiles[y][x]);
-      GrRect(dc, origin_x + x * tile_size, origin_y + y * tile_size,
-             tile_size, tile_size);
-    }
-  HBMDrawMarkers(dc, map->markers, map->marker_count,
-                 origin_x, origin_y, tile_size);
-  if (layer && strcmp(layer->map_id, map->id) == 0)
-    HBMDrawMarkers(dc, layer->markers, layer->marker_count,
-                   origin_x, origin_y, tile_size);
-}
+#include "HolyMapsDetail.HC"
 
 #endif
