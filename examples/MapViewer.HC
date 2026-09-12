@@ -1,5 +1,5 @@
 #include "HolyGame.HC"
-#include "HolyMaps.HC"
+#include "HolyMapsDetail.HC"
 #include <stdlib.h>
 
 CDC *dc;
@@ -22,7 +22,7 @@ U0 DrawViewer(I64 map_index, I64 layer_index, I64 marker_index)
     GrText(dc, 10, 31, layer->name);
   else
     GrText(dc, 10, 31, map->period);
-  HBMDrawMap(dc, map, layer, 20, 60, 20);
+  HBMDrawDetailedMap(dc, map, layer, 20, 60, 600, 360);
 
   markers = map->markers;
   marker_count = map->marker_count;
@@ -34,14 +34,16 @@ U0 DrawViewer(I64 map_index, I64 layer_index, I64 marker_index)
   if (marker_count > 0) {
     selected = &markers[marker_index % marker_count];
     dc->color = WHITE;
-    GrLine(dc, 20 + selected->x * 20 + 3,
-           60 + selected->y * 20 + 3,
-           20 + selected->x * 20 + 16,
-           60 + selected->y * 20 + 3);
-    GrLine(dc, 20 + selected->x * 20 + 3,
-           60 + selected->y * 20 + 16,
-           20 + selected->x * 20 + 16,
-           60 + selected->y * 20 + 16);
+    I64 selected_x = HBMMarkerScreenX(map, selected, 20, 600);
+    I64 selected_y = HBMMarkerScreenY(map, selected, 60, 360);
+    GrLine(dc, selected_x - 7, selected_y - 7,
+           selected_x + 7, selected_y - 7);
+    GrLine(dc, selected_x - 7, selected_y + 7,
+           selected_x + 7, selected_y + 7);
+    GrLine(dc, selected_x - 7, selected_y - 7,
+           selected_x - 7, selected_y + 7);
+    GrLine(dc, selected_x + 7, selected_y - 7,
+           selected_x + 7, selected_y + 7);
     snprintf(detail, sizeof(detail), "%s  %s",
              selected->name, selected->reference);
     dc->color = BLACK;

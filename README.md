@@ -4,14 +4,16 @@ HolyC Biblical Maps is a reusable 16-color map pack for games built with
 [HolyC Linux](https://github.com/Bak-Lab/holyc-linux) and
 [HolyC Game Engine](https://github.com/Bak-Lab/holyc-game-engine).
 
-The maps are compact tile grids with structured markers, scripture
-references, period metadata, and explicit certainty labels. They are intended
-for games and educational exploration rather than modern navigation or
-archaeological analysis.
+The maps combine compact gameplay tile grids with full-resolution vector
+geometry, structured markers, scripture references, period metadata, and
+explicit certainty labels. They are intended for games and educational
+exploration rather than modern navigation or archaeological analysis.
 
-The viewer targets the full TempleOS-style 640×480 display. Its 30×18 maps
-render as a 600×360 pixel viewport with 20×20 tiles, leaving only compact
-header and location-information bars.
+The viewer targets the full TempleOS-style 640×480 display. Maps are
+rasterized from normalized coastlines, terrain regions, rivers, roads,
+buildings, walls, islands, and routes directly into a 600×360 viewport.
+The 30×18 grids remain available as lightweight gameplay and collision data;
+they are no longer enlarged into visible 20×20 blocks.
 
 ## Included maps
 
@@ -43,17 +45,18 @@ header and location-information bars.
 - `HBMMap` tile maps
 - `HBMMarker` cities, regions, landmarks, and routes
 - `HBMLayer` period-specific overlays
+- `HBMDrawDetailedMap` full-resolution vector map renderer
 - Attested, approximate, traditional, and disputed certainty levels
 - Lookup and iteration functions
 - A framebuffer renderer using the standard 16-color palette
 
 ```c
-#include "HolyMaps.HC"
+#include "HolyMapsDetail.HC"
 
 const HBMMap *world = HBMFindMap("near_east");
 const HBMLayer *period = HBMFindLayer("united_monarchy");
 
-HBMDrawMap(dc, world, period, 10, 62, 14);
+HBMDrawDetailedMap(dc, world, period, 20, 60, 600, 360);
 ```
 
 ## Build the viewer
@@ -80,8 +83,9 @@ Engine commit `325910c` or newer.
 ## Historical scope
 
 These are intentionally schematic game maps. Coastlines, distances, city
-footprints, roads, and political boundaries are simplified to a coarse tile
-grid. A marker's certainty field distinguishes:
+footprints, roads, and political boundaries are detailed for a 640×480 game
+display but are not survey-grade geography. A marker's certainty field
+distinguishes:
 
 - **Attested** locations with strong textual and geographic identification
 - **Approximate** placement simplified for the map scale

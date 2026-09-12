@@ -1,4 +1,4 @@
-#include "HolyMaps.HC"
+#include "HolyMapsDetail.HC"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -62,6 +62,14 @@ U0 Main()
   Require(HBMFindMap("exodus_route")->markers[2].certainty ==
               HBM_CERTAINTY_DISPUTED,
           "uncertain Exodus geography must be labeled");
+  Require(HBMMarkerScreenX(HBMFindMap("near_east"),
+                           &HBMFindMap("near_east")->markers[0],
+                           20, 600) >= 20,
+          "detailed marker x coordinate is outside viewport");
+  Require(HBMMarkerScreenY(HBMFindMap("near_east"),
+                           &HBMFindMap("near_east")->markers[0],
+                           60, 360) >= 60,
+          "detailed marker y coordinate is outside viewport");
 
   printf("HolyMaps tests passed: %lld maps, %lld layers\n",
          (long long)HBMMapCount(), (long long)HBMLayerCount());
