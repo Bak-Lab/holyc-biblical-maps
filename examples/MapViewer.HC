@@ -67,26 +67,38 @@ U0 Main()
   I64 marker_index = 0;
   I64 frames = 0;
   Bool autoplay = getenv("HOLY_MAPS_AUTOPLAY") != NULL;
+  Bool redraw = TRUE;
 
   dc = DCAlias;
   while (!HCQuitRequested()) {
     HGInputPoll(&input, 1);
     if (input.cancel)
       break;
-    if (input.move_x != 0 && horizontal_latch == 0)
+    if (input.move_x != 0 && horizontal_latch == 0) {
       map_index =
           (map_index + SignI64(input.move_x) + HBMMapCount()) % HBMMapCount();
-    if (input.move_y != 0 && vertical_latch == 0)
+      redraw = TRUE;
+    }
+    if (input.move_y != 0 && vertical_latch == 0) {
       layer_index =
           (layer_index + SignI64(input.move_y) + HBMLayerCount()) %
           HBMLayerCount();
-    if (input.action)
+      redraw = TRUE;
+    }
+    if (input.action) {
       marker_index++;
+      redraw = TRUE;
+    }
     horizontal_latch = SignI64(input.move_x);
     vertical_latch = SignI64(input.move_y);
-    if (autoplay && frames > 0 && frames % 8 == 0)
+    if (autoplay && frames > 0 && frames % 8 == 0) {
       map_index = (map_index + 1) % HBMMapCount();
-    DrawViewer(map_index, layer_index, marker_index);
+      redraw = TRUE;
+    }
+    if (redraw) {
+      DrawViewer(map_index, layer_index, marker_index);
+      redraw = FALSE;
+    }
     Sleep(16);
     if (autoplay && ++frames > 56)
       break;

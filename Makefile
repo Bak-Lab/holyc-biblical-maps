@@ -4,18 +4,21 @@ HOLYC := $(HOLYC_ROOT)/.holyc-build/bin/holyc
 INCLUDES := -I include -I $(HOLYGAME_ROOT)/include
 VIEWER := build/map-viewer
 
-.PHONY: all run test clean
+.PHONY: all run test clean raster-assets
 
 all: $(VIEWER)
 
 $(HOLYC):
 	$(MAKE) -C $(HOLYC_ROOT) compiler
 
-$(VIEWER): examples/MapViewer.HC include/HolyMaps.HC $(HOLYC)
+MAP_HEADERS := include/HolyMaps.HC include/HolyMapsDetail.HC \
+	include/HolyMapsRasterData.HC
+
+$(VIEWER): examples/MapViewer.HC $(MAP_HEADERS) $(HOLYC)
 	mkdir -p build
 	$(HOLYC) $< $(INCLUDES) -o $@
 
-build/map-test: tests/MapTest.HC include/HolyMaps.HC $(HOLYC)
+build/map-test: tests/MapTest.HC $(MAP_HEADERS) $(HOLYC)
 	mkdir -p build
 	$(HOLYC) $< $(INCLUDES) -o $@
 
@@ -28,3 +31,6 @@ test: build/map-test $(VIEWER)
 
 clean:
 	rm -rf build
+
+raster-assets:
+	./tools/rasterize_maps.sh

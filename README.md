@@ -4,14 +4,16 @@ HolyC Biblical Maps is a reusable 16-color map pack for games built with
 [HolyC Linux](https://github.com/Bak-Lab/holyc-linux) and
 [HolyC Game Engine](https://github.com/Bak-Lab/holyc-game-engine).
 
-The maps combine compact gameplay tile grids with full-resolution vector
-geometry, structured markers, scripture references, period metadata, and
-explicit certainty labels. They are intended for games and educational
-exploration rather than modern navigation or archaeological analysis.
+The maps combine compact gameplay tile grids with pixel-art conversions of
+public-domain cartography, structured markers, scripture references, period
+metadata, and explicit certainty labels. They are intended for games and
+educational exploration rather than modern navigation or archaeological
+analysis.
 
-The viewer targets the full TempleOS-style 640×480 display. Maps are
-rasterized from normalized coastlines, terrain regions, rivers, roads,
-buildings, walls, islands, and routes directly into a 640×360 canvas.
+The viewer targets the full TempleOS-style 640×480 display. Regional maps use
+public-domain Natural Earth geography, while detailed maps use plates from
+Jesse Lyman Hurlbut's public-domain 1910 *Bible Atlas*. Each source is cropped
+and reduced directly to the TempleOS 16-color palette at 640×360.
 `HBMDrawMap` is the canonical one-pixel-resolution renderer; its `tile_size`
 argument is retained for source compatibility but ignored.
 The 30×18 grids remain available as lightweight gameplay and collision data;
@@ -48,6 +50,7 @@ they are no longer enlarged into visible 20×20 blocks.
 - `HBMMarker` cities, regions, landmarks, and routes
 - `HBMLayer` period-specific overlays
 - `HBMDrawMap` canonical 640×360 one-pixel-resolution renderer
+- Run-length encoded, dependency-free 16-color raster assets
 - Attested, approximate, traditional, and disputed certainty levels
 - Lookup and iteration functions
 - A framebuffer renderer using the standard 16-color palette
@@ -82,6 +85,20 @@ historical layers. Escape, B / Circle, or Back exits.
 The map pack requires HolyC Linux commit `7226999` or newer and HolyC Game
 Engine commit `325910c` or newer.
 
+## Regenerate the map assets
+
+The generated maps and their run-length encoded HolyC data are committed, so
+normal builds do not download anything. To reproduce them from the original
+public-domain sources, install ImageMagick, Poppler, curl, unzip, and a C17
+compiler, then run:
+
+```sh
+make raster-assets
+```
+
+The script verifies both source archives against pinned SHA-256 checksums
+before creating the six PNG previews and `include/HolyMapsRasterData.HC`.
+
 ## Historical scope
 
 These are intentionally schematic game maps. Coastlines, distances, city
@@ -97,7 +114,8 @@ distinguishes:
 The Exodus route and Mount Sinai location are explicitly marked disputed.
 The project does not claim that one proposed route is historically certain.
 
-No third-party map tiles or copyrighted cartography are included.
+See [`assets/README.md`](assets/README.md) for source URLs, checksums, atlas
+pages, rights status, and reproduction instructions.
 
 ## License
 

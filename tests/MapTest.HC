@@ -18,6 +18,8 @@ U0 Main()
   I64 layer_index;
   I64 row;
   I64 marker;
+  I64 raster_size;
+  const U8 *raster;
 
   Require(HBMMapCount() == 6, "expected two world and four detailed maps");
   Require(HBMLayerCount() == 6, "expected six historical layers");
@@ -30,6 +32,11 @@ U0 Main()
 
   for (map_index = 0; map_index < HBMMapCount(); map_index++) {
     map = HBMMapAt(map_index);
+    raster = HBMDRasterForMap(map, &raster_size);
+    Require(raster, "map raster is missing");
+    Require(HBMDRasterPixelCount(raster, raster_size) ==
+                HBM_MAP_W * HBM_MAP_H,
+            "map raster does not decode to 640x360 pixels");
     for (row = 0; row < map->height; row++)
       Require((I64)strlen(map->tiles[row]) == map->width,
               "tile row width does not match map width");

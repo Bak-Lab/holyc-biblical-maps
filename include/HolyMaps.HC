@@ -173,54 +173,54 @@ static const char *hbm_exodus_tiles[] = {
 };
 
 static const HBMMarker hbm_near_east_markers[] = {
-    {"egypt", "Egypt", 4, 14, HBM_LOCATION_REGION, HBM_CERTAINTY_ATTESTED, "EXO 1"},
-    {"sinai", "Sinai", 8, 14, HBM_LOCATION_REGION, HBM_CERTAINTY_DISPUTED, "EXO 19"},
-    {"canaan", "Canaan", 11, 10, HBM_LOCATION_REGION, HBM_CERTAINTY_APPROXIMATE, "GEN 12"},
-    {"damascus", "Damascus", 14, 7, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "1KI 11"},
-    {"haran", "Haran", 19, 4, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "GEN 11"},
-    {"nineveh", "Nineveh", 24, 6, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "JON 1"},
-    {"babylon", "Babylon", 24, 11, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "2KI 24"},
-    {"susa", "Susa", 28, 12, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "EST 1"},
+    {"egypt", "Egypt", 9, 9, HBM_LOCATION_REGION, HBM_CERTAINTY_ATTESTED, "EXO 1"},
+    {"sinai", "Sinai", 11, 8, HBM_LOCATION_REGION, HBM_CERTAINTY_DISPUTED, "EXO 19"},
+    {"canaan", "Canaan", 11, 6, HBM_LOCATION_REGION, HBM_CERTAINTY_APPROXIMATE, "GEN 12"},
+    {"damascus", "Damascus", 12, 5, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "1KI 11"},
+    {"haran", "Haran", 14, 3, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "GEN 11"},
+    {"nineveh", "Nineveh", 16, 3, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "JON 1"},
+    {"babylon", "Babylon", 17, 6, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "2KI 24"},
+    {"susa", "Susa", 19, 6, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "EST 1"},
 };
 
 static const HBMMarker hbm_mediterranean_markers[] = {
-    {"rome", "Rome", 4, 6, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "ACT 28"},
-    {"corinth", "Corinth", 11, 9, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "ACT 18"},
-    {"ephesus", "Ephesus", 16, 9, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "ACT 19"},
-    {"antioch", "Antioch", 23, 8, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "ACT 11"},
-    {"galilee", "Galilee", 27, 11, HBM_LOCATION_REGION, HBM_CERTAINTY_APPROXIMATE, "MAT 4"},
-    {"jerusalem", "Jerusalem", 27, 13, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "ACT 1"},
-    {"alexandria", "Alexandria", 23, 15, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "ACT 18"},
+    {"rome", "Rome", 12, 4, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "ACT 28"},
+    {"corinth", "Corinth", 18, 6, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "ACT 18"},
+    {"ephesus", "Ephesus", 20, 6, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "ACT 19"},
+    {"antioch", "Antioch", 25, 7, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "ACT 11"},
+    {"galilee", "Galilee", 25, 9, HBM_LOCATION_REGION, HBM_CERTAINTY_APPROXIMATE, "MAT 4"},
+    {"jerusalem", "Jerusalem", 25, 10, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "ACT 1"},
+    {"alexandria", "Alexandria", 22, 10, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "ACT 18"},
 };
 
 static const HBMMarker hbm_bethlehem_markers[] = {
-    {"bethlehem", "Bethlehem", 16, 7, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "1SA 16"},
-    {"fields", "Shepherd Fields", 6, 10, HBM_LOCATION_LANDMARK, HBM_CERTAINTY_TRADITIONAL, "LUK 2"},
-    {"well", "Town Well", 5, 7, HBM_LOCATION_LANDMARK, HBM_CERTAINTY_APPROXIMATE, "2SA 23"},
-    {"jerusalem_road", "Road to Jerusalem", 25, 15, HBM_LOCATION_ROUTE, HBM_CERTAINTY_APPROXIMATE, "JDG 19"},
+    {"bethlehem", "Bethlehem", 14, 16, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "1SA 16"},
+    {"fields", "Shepherd Fields", 18, 17, HBM_LOCATION_LANDMARK, HBM_CERTAINTY_TRADITIONAL, "LUK 2"},
+    {"well", "Town Well", 14, 15, HBM_LOCATION_LANDMARK, HBM_CERTAINTY_APPROXIMATE, "2SA 23"},
+    {"jerusalem_road", "Road to Jerusalem", 16, 8, HBM_LOCATION_ROUTE, HBM_CERTAINTY_APPROXIMATE, "JDG 19"},
 };
 
 static const HBMMarker hbm_jerusalem_markers[] = {
-    {"city_of_david", "City of David", 10, 12, HBM_LOCATION_REGION, HBM_CERTAINTY_APPROXIMATE, "2SA 5"},
-    {"temple_mount", "Temple Mount", 20, 5, HBM_LOCATION_LANDMARK, HBM_CERTAINTY_TRADITIONAL, "2CH 3"},
-    {"gihon", "Gihon Spring", 25, 13, HBM_LOCATION_LANDMARK, HBM_CERTAINTY_ATTESTED, "1KI 1"},
-    {"western_gate", "Western Gate", 3, 9, HBM_LOCATION_LANDMARK, HBM_CERTAINTY_APPROXIMATE, "2CH 23"},
+    {"city_of_david", "City of David", 14, 16, HBM_LOCATION_REGION, HBM_CERTAINTY_APPROXIMATE, "2SA 5"},
+    {"temple_mount", "Temple Mount", 19, 8, HBM_LOCATION_LANDMARK, HBM_CERTAINTY_TRADITIONAL, "2CH 3"},
+    {"gihon", "Gihon Spring", 21, 17, HBM_LOCATION_LANDMARK, HBM_CERTAINTY_ATTESTED, "1KI 1"},
+    {"western_gate", "Western Gate", 10, 8, HBM_LOCATION_LANDMARK, HBM_CERTAINTY_APPROXIMATE, "2CH 23"},
 };
 
 static const HBMMarker hbm_elah_markers[] = {
-    {"israel_camp", "Israelite Camp", 6, 5, HBM_LOCATION_LANDMARK, HBM_CERTAINTY_APPROXIMATE, "1SA 17"},
-    {"philistine_camp", "Philistine Camp", 24, 13, HBM_LOCATION_LANDMARK, HBM_CERTAINTY_APPROXIMATE, "1SA 17"},
-    {"elah_stream", "Brook of Elah", 15, 9, HBM_LOCATION_LANDMARK, HBM_CERTAINTY_APPROXIMATE, "1SA 17"},
-    {"duel_ground", "Duel Ground", 15, 8, HBM_LOCATION_LANDMARK, HBM_CERTAINTY_APPROXIMATE, "1SA 17"},
+    {"israel_camp", "Israelite Camp", 12, 8, HBM_LOCATION_LANDMARK, HBM_CERTAINTY_APPROXIMATE, "1SA 17"},
+    {"philistine_camp", "Philistine Camp", 5, 13, HBM_LOCATION_LANDMARK, HBM_CERTAINTY_APPROXIMATE, "1SA 17"},
+    {"elah_stream", "Brook of Elah", 9, 11, HBM_LOCATION_LANDMARK, HBM_CERTAINTY_APPROXIMATE, "1SA 17"},
+    {"duel_ground", "Duel Ground", 10, 10, HBM_LOCATION_LANDMARK, HBM_CERTAINTY_APPROXIMATE, "1SA 17"},
 };
 
 static const HBMMarker hbm_exodus_markers[] = {
-    {"goshen", "Goshen", 4, 7, HBM_LOCATION_REGION, HBM_CERTAINTY_APPROXIMATE, "EXO 8"},
-    {"succoth", "Succoth", 10, 7, HBM_LOCATION_ROUTE, HBM_CERTAINTY_DISPUTED, "EXO 12"},
-    {"sea_crossing", "Sea Crossing", 14, 10, HBM_LOCATION_ROUTE, HBM_CERTAINTY_DISPUTED, "EXO 14"},
-    {"sinai_camp", "Sinai Camp", 18, 13, HBM_LOCATION_ROUTE, HBM_CERTAINTY_DISPUTED, "EXO 19"},
-    {"kadesh", "Kadesh Barnea", 23, 14, HBM_LOCATION_ROUTE, HBM_CERTAINTY_APPROXIMATE, "NUM 13"},
-    {"jericho", "Jericho", 29, 14, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "JOS 6"},
+    {"goshen", "Goshen", 5, 5, HBM_LOCATION_REGION, HBM_CERTAINTY_APPROXIMATE, "EXO 8"},
+    {"succoth", "Succoth", 7, 6, HBM_LOCATION_ROUTE, HBM_CERTAINTY_DISPUTED, "EXO 12"},
+    {"sea_crossing", "Sea Crossing", 8, 8, HBM_LOCATION_ROUTE, HBM_CERTAINTY_DISPUTED, "EXO 14"},
+    {"sinai_camp", "Sinai Camp", 13, 14, HBM_LOCATION_ROUTE, HBM_CERTAINTY_DISPUTED, "EXO 19"},
+    {"kadesh", "Kadesh Barnea", 22, 5, HBM_LOCATION_ROUTE, HBM_CERTAINTY_APPROXIMATE, "NUM 13"},
+    {"jericho", "Jericho", 26, 2, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "JOS 6"},
 };
 
 static const HBMMap hbm_maps[] = {
@@ -239,55 +239,55 @@ static const HBMMap hbm_maps[] = {
 };
 
 static const HBMMarker hbm_patriarch_markers[] = {
-    {"ur", "Ur", 26, 13, HBM_LOCATION_CITY, HBM_CERTAINTY_APPROXIMATE, "GEN 11"},
-    {"haran", "Haran", 19, 4, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "GEN 11"},
-    {"shechem", "Shechem", 11, 9, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "GEN 12"},
-    {"bethel", "Bethel", 11, 10, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "GEN 12"},
-    {"hebron", "Hebron", 10, 12, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "GEN 13"},
-    {"beersheba", "Beersheba", 9, 13, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "GEN 21"},
+    {"ur", "Ur", 18, 7, HBM_LOCATION_CITY, HBM_CERTAINTY_APPROXIMATE, "GEN 11"},
+    {"haran", "Haran", 14, 3, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "GEN 11"},
+    {"shechem", "Shechem", 11, 6, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "GEN 12"},
+    {"bethel", "Bethel", 11, 7, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "GEN 12"},
+    {"hebron", "Hebron", 10, 7, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "GEN 13"},
+    {"beersheba", "Beersheba", 10, 8, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "GEN 21"},
 };
 
 static const HBMMarker hbm_exodus_layer_markers[] = {
-    {"raamses", "Rameses", 4, 13, HBM_LOCATION_CITY, HBM_CERTAINTY_APPROXIMATE, "EXO 12"},
-    {"sea_crossing", "Sea Crossing", 8, 14, HBM_LOCATION_ROUTE, HBM_CERTAINTY_DISPUTED, "EXO 14"},
-    {"sinai", "Mount Sinai", 10, 15, HBM_LOCATION_LANDMARK, HBM_CERTAINTY_DISPUTED, "EXO 19"},
-    {"kadesh", "Kadesh Barnea", 10, 13, HBM_LOCATION_ROUTE, HBM_CERTAINTY_APPROXIMATE, "NUM 13"},
-    {"jericho", "Jericho", 12, 10, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "JOS 6"},
-    {"shiloh", "Shiloh", 12, 9, HBM_LOCATION_CITY, HBM_CERTAINTY_APPROXIMATE, "JOS 18"},
+    {"raamses", "Rameses", 10, 7, HBM_LOCATION_CITY, HBM_CERTAINTY_APPROXIMATE, "EXO 12"},
+    {"sea_crossing", "Sea Crossing", 11, 8, HBM_LOCATION_ROUTE, HBM_CERTAINTY_DISPUTED, "EXO 14"},
+    {"sinai", "Mount Sinai", 11, 9, HBM_LOCATION_LANDMARK, HBM_CERTAINTY_DISPUTED, "EXO 19"},
+    {"kadesh", "Kadesh Barnea", 10, 8, HBM_LOCATION_ROUTE, HBM_CERTAINTY_APPROXIMATE, "NUM 13"},
+    {"jericho", "Jericho", 11, 6, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "JOS 6"},
+    {"shiloh", "Shiloh", 11, 6, HBM_LOCATION_CITY, HBM_CERTAINTY_APPROXIMATE, "JOS 18"},
 };
 
 static const HBMMarker hbm_monarchy_markers[] = {
-    {"jerusalem", "Jerusalem", 11, 11, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "2SA 5"},
-    {"bethlehem", "Bethlehem", 11, 12, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "1SA 16"},
-    {"hebron", "Hebron", 10, 12, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "2SA 2"},
-    {"elah", "Valley of Elah", 10, 11, HBM_LOCATION_LANDMARK, HBM_CERTAINTY_ATTESTED, "1SA 17"},
-    {"gath", "Gath", 9, 10, HBM_LOCATION_CITY, HBM_CERTAINTY_APPROXIMATE, "1SA 17"},
-    {"dan", "Dan", 12, 7, HBM_LOCATION_CITY, HBM_CERTAINTY_APPROXIMATE, "JDG 18"},
+    {"jerusalem", "Jerusalem", 11, 6, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "2SA 5"},
+    {"bethlehem", "Bethlehem", 11, 7, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "1SA 16"},
+    {"hebron", "Hebron", 10, 7, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "2SA 2"},
+    {"elah", "Valley of Elah", 10, 7, HBM_LOCATION_LANDMARK, HBM_CERTAINTY_ATTESTED, "1SA 17"},
+    {"gath", "Gath", 10, 7, HBM_LOCATION_CITY, HBM_CERTAINTY_APPROXIMATE, "1SA 17"},
+    {"dan", "Dan", 11, 4, HBM_LOCATION_CITY, HBM_CERTAINTY_APPROXIMATE, "JDG 18"},
 };
 
 static const HBMMarker hbm_kingdom_markers[] = {
-    {"samaria", "Samaria", 11, 9, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "1KI 16"},
-    {"jerusalem", "Jerusalem", 11, 11, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "1KI 12"},
-    {"damascus", "Damascus", 14, 7, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "1KI 15"},
-    {"nineveh", "Nineveh", 24, 6, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "2KI 19"},
-    {"lachish", "Lachish", 10, 12, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "2KI 18"},
+    {"samaria", "Samaria", 11, 6, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "1KI 16"},
+    {"jerusalem", "Jerusalem", 11, 7, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "1KI 12"},
+    {"damascus", "Damascus", 12, 5, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "1KI 15"},
+    {"nineveh", "Nineveh", 16, 3, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "2KI 19"},
+    {"lachish", "Lachish", 10, 7, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "2KI 18"},
 };
 
 static const HBMMarker hbm_exile_markers[] = {
-    {"jerusalem", "Jerusalem", 11, 11, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "2KI 25"},
-    {"babylon", "Babylon", 24, 11, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "2KI 24"},
-    {"susa", "Susa", 28, 12, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "EST 1"},
-    {"return_route", "Return Route", 18, 8, HBM_LOCATION_ROUTE, HBM_CERTAINTY_APPROXIMATE, "EZR 1"},
+    {"jerusalem", "Jerusalem", 11, 7, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "2KI 25"},
+    {"babylon", "Babylon", 17, 6, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "2KI 24"},
+    {"susa", "Susa", 19, 6, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "EST 1"},
+    {"return_route", "Return Route", 15, 5, HBM_LOCATION_ROUTE, HBM_CERTAINTY_APPROXIMATE, "EZR 1"},
 };
 
 static const HBMMarker hbm_nt_markers[] = {
-    {"jerusalem", "Jerusalem", 27, 13, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "ACT 1"},
-    {"nazareth", "Nazareth", 27, 11, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "LUK 1"},
-    {"capernaum", "Capernaum", 28, 10, HBM_LOCATION_CITY, HBM_CERTAINTY_APPROXIMATE, "MAT 4"},
-    {"antioch", "Antioch", 23, 8, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "ACT 11"},
-    {"ephesus", "Ephesus", 16, 9, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "ACT 19"},
-    {"corinth", "Corinth", 11, 9, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "ACT 18"},
-    {"rome", "Rome", 4, 6, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "ACT 28"},
+    {"jerusalem", "Jerusalem", 25, 10, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "ACT 1"},
+    {"nazareth", "Nazareth", 25, 9, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "LUK 1"},
+    {"capernaum", "Capernaum", 25, 8, HBM_LOCATION_CITY, HBM_CERTAINTY_APPROXIMATE, "MAT 4"},
+    {"antioch", "Antioch", 25, 7, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "ACT 11"},
+    {"ephesus", "Ephesus", 20, 6, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "ACT 19"},
+    {"corinth", "Corinth", 18, 6, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "ACT 18"},
+    {"rome", "Rome", 12, 4, HBM_LOCATION_CITY, HBM_CERTAINTY_ATTESTED, "ACT 28"},
 };
 
 static const HBMLayer hbm_layers[] = {
